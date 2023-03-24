@@ -1,0 +1,17 @@
+body{
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+}
+.quiz{
+    padding: 20px;
+    border: 2px solid red;
+}
+button{
+    border: none;
+    background: green;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <main>
+        <h1>Quiz Game</h1>
+        <div class="quiz" id="quiz"></div>
+        <button id="submit">Submit</button>
+        <div id="results"></div>
+
+
+
+
+        <script>
+            var questions = [
+                {
+                    question: "1] What is the capital of France?",
+                    choices: ["Paris", "London", "Madrid", "Rome"],
+                    answer: 0,
+                },
+                {
+                    question: "2] What is the largest ocean in the world?",
+                    choices: [
+                        "Atlantic Ocean",
+                        "Indian Ocean",
+                        "Arctic Ocean",
+                        "Pacific Ocean",
+                    ],
+                    answer: 3,
+                },
+                {
+                    question: "3] What is the currency of Japan?",
+                    choices: ["Dollar", "Pound", "Euro", "Yen"],
+                    answer: 3,
+                },
+            ];
+
+            var quizContainer = document.getElementById("quiz");
+            var resultsContainer = document.getElementById("results");
+            var submitButton = document.getElementById("submit");
+
+            function generateQuiz(
+                questions,
+                quizContainer,
+                resultsContainer,
+                submitButton
+            ) {
+                function showQuestions(questions, quizContainer) {
+                    var output = [];
+                    var choices;
+
+                    for (var i = 0; i < questions.length; i++) {
+                        choices = [];
+
+                        for (var j = 0; j < questions[i].choices.length; j++) {
+                            choices.push(
+                                "<label>" +
+                                '<input type="radio" name="question' +
+                                i +
+                                '" value="' +
+                                j +
+                                '">' +
+                                questions[i].choices[j] +
+                                "</label>"
+                            );
+                        }
+
+                        output.push(
+                            '<div class="question">' +
+                            questions[i].question +
+                            "</div>" +
+                            '<div class="choices">' +
+                            choices.join("") +
+                            "</div>"
+                        );
+                    }
+
+                    quizContainer.innerHTML = output.join("");
+                }
+
+                function showResults(questions, quizContainer, resultsContainer) {
+                    var answerContainers = quizContainer.querySelectorAll(".choices");
+                    var userAnswer = "";
+                    var numCorrect = 0;
+
+                    for (var i = 0; i < questions.length; i++) {
+                        userAnswer = (
+                            answerContainers[i].querySelector(
+                                "input[name=question" + i + "]:checked"
+                            ) || {}
+                        ).value;
+
+                        if (userAnswer === questions[i].answer.toString()) {
+                            numCorrect++;
+                            answerContainers[i].style.color = "lightgreen";
+                        } else {
+                            answerContainers[i].style.color = "red";
+                        }
+                    }
+
+                    resultsContainer.innerHTML = numCorrect + " out of " + questions.length;
+                }
+
+                showQuestions(questions, quizContainer);
+
+                submitButton.onclick = function () {
+                    showResults(questions, quizContainer, resultsContainer);
+                };
+            }
+
+            generateQuiz(questions, quizContainer, resultsContainer, submitButton);
+        </script>
+    </main>
+
+</body>
+
+</html>
