@@ -1,0 +1,110 @@
+body,main{
+  font-family: 'Ubuntu Condensed', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-weight: 550;
+}
+header {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  box-shadow: 0px 1px 8px 0px blueviolet;
+
+}
+header a {
+  text-decoration: none;
+  color: unset;
+}
+header li {
+  list-style: none;
+}
+article{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.interface {
+  box-shadow: 0px 1px 8px 0px blueviolet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 70vw;
+  height: 60vh;
+  border-radius:15px;
+  margin: 20px;
+  padding: 20px;
+}
+.Card{
+  display: flex;
+
+  padding: 20px;
+}
+.buttons{
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  gap: 50px;
+}
+.buttons button{
+  border: none;
+  
+}
+.buttons li{
+  list-style: none;
+
+}
+label{
+  width: 120px;
+}
+form{
+  display: grid;
+}
+button{
+  background-color: cornflowerblue;
+  padding: 10px;
+  width: 65px;
+  border-radius:7px ;
+  color: white;
+}
+button:hover{
+  background-color: blueviolet;
+}
+input{
+  
+  border: 1px solid blueviolet;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+} 
+button a{
+  text-decoration: none;
+  color: unset;
+}
+header a:hover{
+  color: rgb(7, 7, 53);
+  text-decoration: underline;
+}
+@media screen and (max-width:600px){
+  .interface {
+    box-shadow: 0px 0px 15px 0px blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 85vw;
+    height: fit-content;
+    border-radius:15px;
+    margin: 50px;
+    
+  }
+  header{
+    font-size: small;
+  }
+  .Card{
+    margin: 10px;
+    padding: 10px;
+    
+  }
+ 
+ 
+}
